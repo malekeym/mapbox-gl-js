@@ -2343,6 +2343,8 @@ class Map extends Camera {
         } else {
             this._setTerrain(null, "projection");
         }
+
+        return this._update(true);
     }
 
     _setTerrain(options: TerrainSpecification, user: string) {
