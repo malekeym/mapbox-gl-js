@@ -18,9 +18,6 @@ void main() {
     if (normDistFromCenter < 1.0)
         discard;
 
-    // linear curve
-    //float t = clamp(1.0 - (normDistFromCenter - 1.0) / u_fadeout_range, 0.0, 1.0);
-
     // exponential (sqrt) curve
     // [0.0, 1.0] == inside the globe, > 1.0 == outside of the globe
     float t = clamp(1.0 - sqrt(normDistFromCenter - 1.0) / u_fadeout_range, 0.0, 1.0);

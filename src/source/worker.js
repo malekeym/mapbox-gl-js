@@ -135,7 +135,6 @@ export default class Worker {
     loadTile(mapId: string, params: WorkerTileParameters & {type: string}, callback: WorkerTileCallback) {
         assert(params.type);
         extend(params, {enableTerrain: this.terrain, projection: this.projection});
-        //const p = this.enableTerrain ? extend({enableTerrain: this.terrain}, params) : params;
         this.getWorkerSource(mapId, params.type, params.source).loadTile(params, callback);
     }
 
@@ -147,7 +146,6 @@ export default class Worker {
     reloadTile(mapId: string, params: WorkerTileParameters & {type: string}, callback: WorkerTileCallback) {
         assert(params.type);
         extend(params, {enableTerrain: this.terrain, projection: this.projection});
-        //const p = this.enableTerrain ? extend({enableTerrain: this.terrain}, params) : params;
         this.getWorkerSource(mapId, params.type, params.source).reloadTile(params, callback);
     }
 
