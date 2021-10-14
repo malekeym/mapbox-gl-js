@@ -44,14 +44,8 @@ uniform float u_exaggeration;
 uniform float u_meter_to_dem;
 uniform mat4 u_label_plane_matrix_inv;
 
-uniform float u_label_space_scale;
-
 uniform sampler2D u_depth;
 uniform vec2 u_depth_size_inv;
-
-float labelSpaceUpVector() {
-    return u_label_space_scale;
-}
 
 vec4 tileUvToDemSample(vec2 uv, float dem_size, float dem_scale, vec2 dem_tl) {
     vec2 pos = dem_size * (uv * dem_scale + dem_tl) + 1.0;
@@ -208,6 +202,5 @@ float elevationFromUint16(float word) {
 float elevation(vec2 pos) { return 0.0; }
 bool isOccluded(vec4 frag) { return false; }
 float occlusionFade(vec4 frag) { return 1.0; }
-float labelSpaceUpVector() { return 1.0; }
 
 #endif
