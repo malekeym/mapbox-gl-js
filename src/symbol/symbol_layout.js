@@ -34,7 +34,6 @@ import {lngFromMercatorX, latFromMercatorY} from '../geo/mercator_coordinate.js'
 import {Aabb} from '../util/primitives.js';
 import {vec3} from 'gl-matrix';
 import {clamp} from '../util/util.js';
-import {tileLatLngCorners, latLngToECEF, normalizeECEF, tileBoundsOnGlobe} from '../geo/projection/globe.js'
 
 import Point from '@mapbox/point-geometry';
 import murmur3 from 'murmurhash-js';

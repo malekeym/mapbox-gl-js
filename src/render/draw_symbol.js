@@ -17,7 +17,6 @@ import {getAnchorAlignment, WritingMode} from '../symbol/shaping.js';
 import ONE_EM from '../symbol/one_em.js';
 import {evaluateVariableOffset} from '../symbol/symbol_layout.js';
 import Tile from '../source/tile.js';
-import { GlobeTile } from '../geo/projection/globe.js';
 import {
     mercatorZfromAltitude,
     mercatorXfromLng,
@@ -146,7 +145,6 @@ function updateVariableAnchors(coords, painter, layer, sourceCache, rotationAlig
         if (size) {
             const tileScale = Math.pow(2, tr.zoom - tile.tileID.overscaledZ);
             const elevation = tr.elevation;
-            const globeTile = new GlobeTile(coord.canonical);
             const getElevation = elevation ? (p => {
                 const e = elevation.getAtTileOffset(coord, p.x, p.y);
                 const up = tileTransform.upVector(coord.canonical, p.x, p.y);
@@ -349,7 +347,7 @@ function drawLayerSymbols(painter, sourceCache, layer, coords, isText, translate
                 vec3.scale(up, up, e * upScale);
                 return up;
             }) : (_ => [0, 0, 0]);
-            symbolProjection.updateLineLabels(bucket, coord.projMatrix, painter, isText, labelPlaneMatrix, glCoordMatrix, /*globeLabelPlaneMatrix, globeGlCoordMatrix,*/ pitchWithMap, keepUpright, getElevation, coord);
+            symbolProjection.updateLineLabels(bucket, coord.projMatrix, painter, isText, labelPlaneMatrix, glCoordMatrix, pitchWithMap, keepUpright, getElevation, coord);
         }
 
         let matrix = painter.translatePosMatrix(coord.projMatrix, tile, translate, translateAnchor),

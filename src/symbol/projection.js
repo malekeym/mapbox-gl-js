@@ -15,9 +15,7 @@ import type {
     SymbolDynamicLayoutArray
 } from '../data/array_types.js';
 import {WritingMode} from '../symbol/shaping.js';
-import {latFromMercatorY, lngFromMercatorX} from '../geo/mercator_coordinate.js';
-import {latLngToECEF, normalizeECEF, tileBoundsOnGlobe} from '../geo/projection/globe.js'
-import { CanonicalTileID, OverscaledTileID } from '../source/tile_id.js';
+import {CanonicalTileID, OverscaledTileID} from '../source/tile_id.js';
 
 export {updateLineLabels, hideGlyphs, getLabelPlaneMatrix, getGlCoordMatrix, project, getPerspectiveRatio, placeFirstAndLastGlyph, placeGlyphAlongLine, xyTransformMat4};
 
